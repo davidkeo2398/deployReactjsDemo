@@ -3,16 +3,15 @@ import './App.css';
 
 import HomeComponent from './components/HomeComponent'
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 function App() {
   return (
-    // <Router>
-    //   <Switch>
-    //     <Route exact path='/' component={HomeComponent} />
-    //   </Switch>
-    // </Router>
-    <div><p>Ky</p></div>
+    <Router>
+      <Switch>
+        <Route exact path='/home' component={HomeComponent} />
+      </Switch>
+    </Router>
   );
 }
 
