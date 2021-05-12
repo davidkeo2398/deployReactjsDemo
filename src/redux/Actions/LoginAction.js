@@ -5,9 +5,9 @@ export const login = (userInfo) => {
     }
 }
 
-export const loggout = (LoginReducer) => {
+export const logout = () => {
     return{
-        type: 'LOGGOUT',
-        payload: LoginReducer,
+        type: 'LOGOUT',
+        payload: '',
     }
 }

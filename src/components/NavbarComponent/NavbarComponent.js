@@ -8,6 +8,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 import { makeStyles } from '@material-ui/core/styles';
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../redux/Actions/LoginAction";
 
 var screenH = window.screen.height;
 var screenW = window.screen.width;
@@ -34,8 +36,18 @@ const phone = makeStyles((theme) => ({
 const Navbar = withRouter(({ location, history }) => {
   const classes = phone()
   const matches = useMediaQuery('(min-width:600px)');
+  const dispatch = useDispatch()
+  // const status = useSelector(state => state.LoginReducer.status)
+  // const status = localStorage.getItem('status')
   const handleClick = () => {
     console.log(screenW + ' : ' + screenH)
+    // console.log(status)
+  }
+  const handleLogoutClick = () => {
+    
+    const action = logout()
+    dispatch(action)
+    document.location.reload(true)
   }
 
   return (
@@ -48,7 +60,7 @@ const Navbar = withRouter(({ location, history }) => {
           <Typography variant="h6" className={classes.title}>
             News
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button onClick={handleLogoutClick} color="inherit">Logout</Button>
         </Toolbar>
       </AppBar>
     </div>
