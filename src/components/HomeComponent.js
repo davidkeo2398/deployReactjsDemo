@@ -31,7 +31,7 @@ const Home = withRouter(({ location, history }) => {
             } */}
             {staTus ?
                 (userName === userNameInp && passWord === passWordInp ?
-                    <Princess></Princess> : <LoginComponent></LoginComponent>
+                    <Princess></Princess> : <Princess></Princess>
                 ) : (!staTus || staTus == '' ? <LoginComponent></LoginComponent> : <div>Error</div>)
 
             }
