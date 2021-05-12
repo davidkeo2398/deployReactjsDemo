@@ -22,25 +22,17 @@ const phone = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  nav: {
+    backgroundColor: 'transparent',
+    color: 'black',
+    boxShadow: 'none',
+  },
 }),
 );
 
-const tablet = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-    fontSize: '2em',
-  },
-}),
-);
 
 const Navbar = withRouter(({ location, history }) => {
-  const classes = screenW < 480 ? phone() : tablet()
+  const classes = phone()
   const matches = useMediaQuery('(min-width:600px)');
   const handleClick = () => {
     console.log(screenW + ' : ' + screenH)
@@ -48,7 +40,7 @@ const Navbar = withRouter(({ location, history }) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar className={classes.nav} position="static">
         <Toolbar>
           <IconButton onClick={handleClick} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
