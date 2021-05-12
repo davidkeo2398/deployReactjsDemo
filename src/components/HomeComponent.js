@@ -1,16 +1,30 @@
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import NavbarComponent from './NavbarComponent/NavbarComponent'
-import {makeStyles} from '@material-ui/core/styles'
- 
-const Home = withRouter(({location, history}) =>{
+import { makeStyles } from '@material-ui/core/styles'
+
+import {useSelector } from 'react-redux'
+
+import LoginComponent from './Login/LoginComponent'
+import UserInfo from '../data/InformationData'
+const Home = withRouter(({ location, history }) => {
     const useStyles = makeStyles((theme) => ({
         root: {
-            
+
         }
     }))
-    return(
+
+    const userNameInp = useSelector(state => state.LoginReducer.userNameInp)
+    const passWordInp = useSelector(state => state.LoginReducer.passWordInp)
+    const { userName, passWord } = UserInfo[0]
+    return (
         <div>
-            <NavbarComponent></NavbarComponent>
+            
+            {userName === userNameInp && passWord === passWordInp ?
+                <NavbarComponent></NavbarComponent> :
+                <LoginComponent></LoginComponent>
+            }
+
+
         </div>
     )
 })

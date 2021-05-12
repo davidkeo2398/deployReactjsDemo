@@ -47,7 +47,7 @@ const Navbar = withRouter(({ location, history }) => {
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             News
-                    </Typography>
+          </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
